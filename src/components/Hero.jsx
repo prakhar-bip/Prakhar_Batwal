@@ -1,7 +1,21 @@
-import { motion } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail, FiArrowRight, FiDownload, FiCode } from 'react-icons/fi';
 
 const Hero = () => {
+  const [showResumeDropdown, setShowResumeDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowResumeDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const socialLinks = [
     { name: 'GitHub', icon: <FiGithub size={20} />, url: 'https://github.com/prakhar-bip' },
     { name: 'LinkedIn', icon: <FiLinkedin size={20} />, url: 'https://linkedin.com/in/prakhar-batwal-a72323249' },
@@ -70,16 +84,67 @@ const Hero = () => {
               <span>Explore Work</span>
               <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
             </a>
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              download="Prakhar_Batwal_Resume.pdf"
-              className="flex items-center space-x-2 border border-border bg-surface hover:bg-surface/85 text-text font-medium px-6 py-3 rounded-lg transition-all duration-300"
-            >
-              <FiDownload />
-              <span>Download Resume</span>
-            </a>
+
+            {/* Multi-profile Resume Dropdown */}
+            <div className="relative inline-block text-left" ref={dropdownRef}>
+              <button
+                onClick={() => setShowResumeDropdown(!showResumeDropdown)}
+                className="flex items-center space-x-2 border border-border bg-surface hover:bg-surface/85 text-text font-medium px-6 py-3 rounded-lg transition-all duration-300 cursor-pointer focus:outline-none active:scale-95"
+              >
+                <FiDownload />
+                <span>Download Resume</span>
+                <span className="text-[9px] opacity-70 transition-transform duration-200" style={{ transform: showResumeDropdown ? 'rotate(180deg)' : 'rotate(0deg)' }}>▼</span>
+              </button>
+
+              <AnimatePresence>
+                {showResumeDropdown && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 md:left-0 mt-2 w-64 glassmorphism rounded-xl border border-border/80 shadow-2xl py-2 z-50 flex flex-col"
+                  >
+                    <div className="px-3.5 py-1.5 border-b border-border/40 mb-1">
+                      <span className="text-[9px] font-mono font-bold text-primary block uppercase tracking-wider">SELECT RESUME PROFILE</span>
+                    </div>
+                    <a
+                      href="/Prakhar_Batwal_Resume.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download="Prakhar_Batwal_SDE_Resume.pdf"
+                      onClick={() => setShowResumeDropdown(false)}
+                      className="px-4 py-2.5 text-xs text-text hover:bg-primary/10 hover:text-primary transition-all duration-200 text-left font-medium flex flex-col"
+                    >
+                      <span className="font-semibold text-[12px]">Software Engineer (SDE)</span>
+                      <span className="text-[10px] text-muted mt-0.5">Backend, Spring Boot, event systems</span>
+                    </a>
+                    <a
+                      href="/prakhar_batwal.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download="Prakhar_Batwal_MLE_Resume.pdf"
+                      onClick={() => setShowResumeDropdown(false)}
+                      className="px-4 py-2.5 text-xs text-text hover:bg-accent/10 hover:text-accent transition-all duration-200 text-left font-medium flex flex-col"
+                    >
+                      <span className="font-semibold text-[12px]">Machine Learning (MLE)</span>
+                      <span className="text-[10px] text-muted mt-0.5">Models, MLOps, deep learning</span>
+                    </a>
+                    <a
+                      href="/Prakhar.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download="Prakhar_Batwal_SBC_Resume.pdf"
+                      onClick={() => setShowResumeDropdown(false)}
+                      className="px-4 py-2.5 text-xs text-text hover:bg-primary/10 hover:text-primary transition-all duration-200 text-left font-medium flex flex-col"
+                    >
+                      <span className="font-semibold text-[12px]">SBC Specialization</span>
+                      <span className="text-[10px] text-muted mt-0.5">Academic profile, general systems</span>
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.div>
 
           {/* Social Badges */}
