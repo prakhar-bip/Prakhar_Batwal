@@ -71,7 +71,10 @@ const Hero = () => {
               <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
             </a>
             <a
-              href="mailto:prakharbatwal418@gmail.com"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Prakhar_Batwal_Resume.pdf"
               className="flex items-center space-x-2 border border-border bg-surface hover:bg-surface/85 text-text font-medium px-6 py-3 rounded-lg transition-all duration-300"
             >
               <FiDownload />
