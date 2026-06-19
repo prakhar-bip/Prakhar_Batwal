@@ -138,6 +138,7 @@ const Skills = () => {
                 <g
                   onMouseEnter={() => handleNodeHover('backend')}
                   onMouseLeave={() => handleNodeHover(null)}
+                  onClick={() => setActiveTab('backend')}
                   className="cursor-pointer group"
                 >
                   <circle
@@ -149,7 +150,11 @@ const Skills = () => {
                     strokeWidth={activeTab === 'backend' ? '2.5' : '1.5'}
                     className="transition-all duration-300"
                   />
-                  <FiServer size={20} className={`x-half y-half absolute transition-colors duration-300 ${activeTab === 'backend' ? 'text-primary' : 'text-muted'}`} style={{ transform: 'translate(150px, 40px)' }} />
+                  <foreignObject x="150" y="40" width="20" height="20">
+                    <div className="w-full h-full flex items-center justify-center pointer-events-none">
+                      <FiServer size={20} className={`transition-colors duration-300 ${activeTab === 'backend' ? 'text-primary' : 'text-muted'}`} />
+                    </div>
+                  </foreignObject>
                   <text x="160" y="94" textAnchor="middle" className={`text-[9px] font-mono font-bold uppercase tracking-wider ${activeTab === 'backend' ? 'fill-primary' : 'fill-muted'}`}>
                     1. CORE RUNTIMES
                   </text>
@@ -159,6 +164,7 @@ const Skills = () => {
                 <g
                   onMouseEnter={() => handleNodeHover('ai')}
                   onMouseLeave={() => handleNodeHover(null)}
+                  onClick={() => setActiveTab('ai')}
                   className="cursor-pointer group"
                 >
                   <circle
@@ -170,7 +176,11 @@ const Skills = () => {
                     strokeWidth={activeTab === 'ai' ? '2.5' : '1.5'}
                     className="transition-all duration-300"
                   />
-                  <FiCpu size={20} className={`x-half y-half absolute transition-colors duration-300 ${activeTab === 'ai' ? 'text-primary' : 'text-muted'}`} style={{ transform: 'translate(150px, 120px)' }} />
+                  <foreignObject x="150" y="120" width="20" height="20">
+                    <div className="w-full h-full flex items-center justify-center pointer-events-none">
+                      <FiCpu size={20} className={`transition-colors duration-300 ${activeTab === 'ai' ? 'text-primary' : 'text-muted'}`} />
+                    </div>
+                  </foreignObject>
                   <text x="160" y="174" textAnchor="middle" className={`text-[9px] font-mono font-bold uppercase tracking-wider ${activeTab === 'ai' ? 'fill-primary' : 'fill-muted'}`}>
                     2. AI MODEL LOGIC
                   </text>
@@ -180,6 +190,7 @@ const Skills = () => {
                 <g
                   onMouseEnter={() => handleNodeHover('data')}
                   onMouseLeave={() => handleNodeHover(null)}
+                  onClick={() => setActiveTab('data')}
                   className="cursor-pointer group"
                 >
                   <circle
@@ -191,7 +202,11 @@ const Skills = () => {
                     strokeWidth={activeTab === 'data' ? '2.5' : '1.5'}
                     className="transition-all duration-300"
                   />
-                  <FiDatabase size={20} className={`x-half y-half absolute transition-colors duration-300 ${activeTab === 'data' ? 'text-primary' : 'text-muted'}`} style={{ transform: 'translate(150px, 205px)' }} />
+                  <foreignObject x="150" y="205" width="20" height="20">
+                    <div className="w-full h-full flex items-center justify-center pointer-events-none">
+                      <FiDatabase size={20} className={`transition-colors duration-300 ${activeTab === 'data' ? 'text-primary' : 'text-muted'}`} />
+                    </div>
+                  </foreignObject>
                   <text x="160" y="259" textAnchor="middle" className={`text-[9px] font-mono font-bold uppercase tracking-wider ${activeTab === 'data' ? 'fill-primary' : 'fill-muted'}`}>
                     3. DATA &amp; STREAMS
                   </text>
@@ -201,6 +216,7 @@ const Skills = () => {
                 <g
                   onMouseEnter={() => handleNodeHover('mlops')}
                   onMouseLeave={() => handleNodeHover(null)}
+                  onClick={() => setActiveTab('mlops')}
                   className="cursor-pointer group"
                 >
                   <circle
@@ -212,7 +228,11 @@ const Skills = () => {
                     strokeWidth={activeTab === 'mlops' ? '2.5' : '1.5'}
                     className="transition-all duration-300"
                   />
-                  <FiSettings size={20} className={`x-half y-half absolute transition-colors duration-300 ${activeTab === 'mlops' ? 'text-primary' : 'text-muted'}`} style={{ transform: 'translate(150px, 290px)' }} />
+                  <foreignObject x="150" y="290" width="20" height="20">
+                    <div className="w-full h-full flex items-center justify-center pointer-events-none">
+                      <FiSettings size={20} className={`transition-colors duration-300 ${activeTab === 'mlops' ? 'text-primary' : 'text-muted'}`} />
+                    </div>
+                  </foreignObject>
                   <text x="160" y="344" textAnchor="middle" className={`text-[9px] font-mono font-bold uppercase tracking-wider ${activeTab === 'mlops' ? 'fill-primary' : 'fill-muted'}`}>
                     4. OPS &amp; INFRA
                   </text>
@@ -242,7 +262,7 @@ const Skills = () => {
                 {skillsData[activeTab].map((skill, index) => (
                   <div
                     key={skill.name}
-                    className="p-5 glassmorphism rounded-xl border border-border/60 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between h-56 group hover:shadow-lg hover:shadow-primary/5"
+                    className="p-5 glassmorphism rounded-xl border border-border/60 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between min-h-[14rem] h-auto group hover:shadow-lg hover:shadow-primary/5"
                   >
                     <div>
                       {/* Card Title & outcome badge */}

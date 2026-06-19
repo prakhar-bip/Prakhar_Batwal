@@ -372,14 +372,20 @@ const TourGuide = () => {
   return (
     <>
       {/* Walkway Line on the left side (aligned precisely to robot's center axis) */}
-      <div className="fixed left-[59px] top-0 bottom-0 w-[2px] bg-border/20 z-[58] hidden md:block" />
+      <div 
+        style={{
+          left: 'max(48px, calc(50% - 592px))'
+        }}
+        className="fixed top-0 bottom-0 w-[2px] bg-border/20 z-[58] hidden md:block transition-all duration-300" 
+      />
 
       {/* Scroll-bound Robot Companion */}
       <motion.div
         style={{
-          top: robotTop
+          top: robotTop,
+          left: 'max(16px, calc(50% - 624px))'
         }}
-        className="fixed left-5 z-[60] font-sans flex items-center space-x-4 pointer-events-none select-none max-w-xs md:max-w-md hidden md:flex"
+        className="fixed z-[60] font-sans flex items-center space-x-3 pointer-events-none select-none max-w-xs md:max-w-md hidden md:flex transition-all duration-300"
       >
         {/* Robot Body Button */}
         <div className="relative flex flex-col items-center pointer-events-auto flex-shrink-0">
@@ -400,7 +406,7 @@ const TourGuide = () => {
               animate={{ opacity: 1, scale: 1, x: 0 }}
               exit={{ opacity: 0, scale: 0.8, x: 10 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="glassmorphism p-3.5 rounded-2xl shadow-xl border border-border/70 text-left pointer-events-auto cursor-default relative w-64 md:w-80"
+              className="glassmorphism p-3.5 rounded-2xl shadow-xl border border-border/70 text-left pointer-events-auto cursor-default relative w-56 md:w-64"
             >
               {/* Left-pointing bubble pointer aligned to robot screen height */}
               <div className="absolute left-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-surface border-l border-b border-border/70 rotate-45" />

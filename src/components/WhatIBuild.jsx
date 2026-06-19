@@ -100,7 +100,7 @@ const WhatIBuild = () => {
             return (
               <motion.div
                 key={cap.title}
-                className="p-6 rounded-xl border text-left transition-all duration-300 flex flex-col justify-between h-72 border-border bg-surface/30 hover:border-primary/50"
+                className="p-6 rounded-xl border text-left transition-all duration-300 flex flex-col justify-between min-h-[18rem] h-auto border-border bg-surface/30 hover:border-primary/50"
                 whileHover={{ y: -4 }}
               >
                 <div className="space-y-4">

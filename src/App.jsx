@@ -61,19 +61,21 @@ function AppContent() {
   return (
     <>
       <BackgroundWaves />
-      <Navbar />
-      <main className="relative z-10 w-full">
-        <Hero />
-        <About />
-        <WhatIBuild />
-        <Skills />
-        <FeaturedProject />
-        <Projects />
-        <Achievements />
-        <Philosophy />
-        <Contact />
-      </main>
-      <Footer />
+      <div className="w-full min-h-screen relative flex flex-col md:pl-20 lg:pl-24 xl:pl-32 transition-all duration-300">
+        <Navbar />
+        <main className="relative z-10 w-full flex-grow">
+          <Hero />
+          <About />
+          <WhatIBuild />
+          <Skills />
+          <FeaturedProject />
+          <Projects />
+          <Achievements />
+          <Philosophy />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
       <TourGuide />
     </>
   );

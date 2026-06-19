@@ -142,7 +142,7 @@ const FeaturedProject = () => {
                         {step.icon}
                       </div>
                       <span
-                        className={`text-[10px] md:text-xs font-semibold mt-3 transition-colors duration-300 ${
+                        className={`text-[10px] md:text-xs font-semibold mt-3 transition-colors duration-300 hidden sm:block ${
                           isActive ? 'text-primary' : 'text-muted'
                         }`}
                       >

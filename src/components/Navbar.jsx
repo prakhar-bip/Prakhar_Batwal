@@ -32,7 +32,7 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 md:pl-20 lg:pl-24 xl:pl-32 flex items-center justify-between">
         <a href="#" className="flex items-center space-x-2">
           <span className="font-mono text-xl font-bold tracking-tight text-text">
             prakhar<span className="text-primary">.dev</span>

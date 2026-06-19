@@ -44,7 +44,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.h1
-            className="text-4xl md:text-6xl font-extrabold tracking-tight text-text leading-tight"
+            className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-text leading-tight"
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -53,7 +53,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.h2
-            className="text-xl md:text-2xl font-semibold text-muted max-w-xl"
+            className="text-lg sm:text-xl md:text-2xl font-semibold text-muted max-w-xl"
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -103,7 +103,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 md:left-0 mt-2 w-64 glassmorphism rounded-xl border border-border/80 shadow-2xl py-2 z-50 flex flex-col"
+                    className="absolute left-0 mt-2 w-64 glassmorphism rounded-xl border border-border/80 shadow-2xl py-2 z-50 flex flex-col"
                   >
                     <div className="px-3.5 py-1.5 border-b border-border/40 mb-1">
                       <span className="text-[9px] font-mono font-bold text-primary block uppercase tracking-wider">SELECT RESUME PROFILE</span>
