@@ -20,9 +20,9 @@ import {
   SKILL_CATEGORIES,
 } from "@/lib/portfolio-data";
 
-const TITLE = "Prakhar Batwal — Backend & MLOps Engineer";
+const TITLE = "Prakhar Batwal — Agentic AI & MLOps Engineer";
 const DESCRIPTION =
-  "Portfolio of Prakhar Batwal: scalable backend systems, distributed event pipelines, multi-agent AI workspaces, and production MLOps infrastructure.";
+  "Portfolio of Prakhar Batwal: LLM-powered AI agents, Generative AI applications, agentic workflows, RAG, and end-to-end MLOps pipelines.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,7 +50,7 @@ function Index() {
               Open to opportunities
             </span>
             <span className="hidden text-muted-foreground md:inline">
-              AI · ML · Software Engineer
+              Agentic AI · GenAI · MLOps
             </span>
           </div>
           <div className="flex gap-6">
@@ -136,16 +136,17 @@ function Index() {
             </blockquote>
           </div>
           <div className="lg:col-span-5">
-            <div className="border border-border p-8">
-              <div className="mb-6 font-mono text-[10px] tracking-widest text-primary uppercase">
-                Education
+              <div className="border border-border p-8">
+                <div className="mb-6 font-mono text-[10px] tracking-widest text-primary uppercase">
+                  Education
+                </div>
+                <h3 className="text-xl font-bold">{EDUCATION.institution}</h3>
+                <p className="mt-1 font-mono text-xs text-primary">{EDUCATION.location}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{EDUCATION.degree}</p>
+                <p className="mt-6 border-t border-border pt-4 font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
+                  {EDUCATION.timeline}
+                </p>
               </div>
-              <h3 className="text-xl font-bold">{EDUCATION.institution}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{EDUCATION.degree}</p>
-              <p className="mt-6 border-t border-border pt-4 font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
-                {EDUCATION.timeline}
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -297,7 +298,7 @@ function Index() {
               Skills &amp; Tools
             </h2>
             <div className="font-mono text-[10px] text-muted-foreground">
-              20 technologies
+              24 technologies
             </div>
           </div>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
@@ -384,6 +385,12 @@ function Index() {
             Building reliable, thoughtful software
           </div>
           <div className="flex flex-wrap justify-center gap-8">
+            <a
+              href={`tel:${PROFILE.phone}`}
+              className="transition-colors hover:text-primary"
+            >
+              {PROFILE.phone}
+            </a>
             <a
               href={PROFILE.links.linkedin}
               target="_blank"

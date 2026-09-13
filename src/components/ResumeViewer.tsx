@@ -126,6 +126,7 @@ export function ResumeViewer() {
               </span>
               <a
                 href={resume.downloadUrl}
+                download={resume.filename ?? "Prakhar_Batwal_Resume.pdf"}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() =>
